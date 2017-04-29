@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.xml
+*.class
+src/main/python/.idea/python.iml
+ess-algorithms.iml
