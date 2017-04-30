@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
-import static java.util.Arrays.sort;
 import static java.util.Collections.reverseOrder;
+import static java.util.stream.Collectors.joining;
 
 
 /**
@@ -15,22 +15,13 @@ public class LengthComparing {
 
     public static void main(String[] args) {
 
-        List<Integer> integers = asList(1, 2, 222, 5, 5, 6, 6, 6, 9);
-        List<Integer> fullIntegers = new ArrayList<>();
+        List<Integer> integers = asList(1, 2, 222, 5, 5, 6, 6666666, 6, 9);
         List<Integer> lengths = new ArrayList<>();
-        StringBuilder builder = new StringBuilder();
+        String joiner = integers.stream().map(String::valueOf).collect(joining());
 
-        int x = 22;
-        int seqCounter = 0;
-        for (int i = 0; i < integers.size(); i++) {
-            String cur = Integer.toString(integers.get(i));
-            builder.append(cur);
-        }
-
-        String str = builder.toString();
         int counter = 0;
-        for (int i = 0; i < str.length() - 1; i++) {
-            if (str.charAt(i) != str.charAt(i + 1)) {
+        for (int i = 0; i < joiner.length() - 1; i++) {
+            if (joiner.charAt(i) != joiner.charAt(i + 1)) {
                 lengths.add(counter);
                 counter = 0;
             }
